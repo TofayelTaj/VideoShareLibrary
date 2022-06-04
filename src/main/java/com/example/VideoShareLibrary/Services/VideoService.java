@@ -4,7 +4,6 @@ import com.example.VideoShareLibrary.Entities.Video;
 import com.example.VideoShareLibrary.Repositories.VideoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -15,14 +14,17 @@ public class VideoService {
 
 //    get all videos
     public List<Video> getAllVideo(){
-        List<Video> allVideo = new ArrayList<>();
-        allVideo = (List<Video>) videoRepository.findAll();
+        List<Video> allVideo = (List<Video>) videoRepository.findAll();
         return allVideo;
     }
 
 //  Save the video
     public void saveVideo(Video video){
         videoRepository.save(video);
+    }
+
+    public Video getVideoByUrl(String url){
+        return videoRepository.findByVideoUrl(url);
     }
 
     public String videoUrlFilter(String url){

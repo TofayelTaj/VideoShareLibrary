@@ -11,10 +11,10 @@
 
 <h2>hello </h2>
 
-<h1 th:text="${#authentication.principal}"></h1>
+<h1 th:text="${#authentication.getPrincipal()}"></h1>
 
 <div th:each="video : ${allVideo}">
-    <h1 th:text="${video}"></h1>
+    <h1 th:text="${video.title}"></h1>
     <a href="" th:href="@{'/v/play/' + ${video.url} }"> Play Video</a>
 </div>
 

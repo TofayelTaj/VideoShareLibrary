@@ -23,7 +23,7 @@ public class VideoController {
 
     @GetMapping("/play/{url}")
     public String playVideo(@ModelAttribute Video video, Model model){
-        model.addAttribute("videoUrl", video.getUrl());
+        model.addAttribute("video", videoService.getVideoByUrl(video.getUrl()));
         return "videoPlayer";
     }
 

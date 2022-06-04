@@ -1,9 +1,6 @@
 package com.example.VideoShareLibrary.Entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Video {
@@ -13,17 +10,7 @@ public class Video {
     private long id;
     private String url;
     private String title;
-//    private long lickCount;
-//    private long dislikeCount;
     private long viewCount;
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     public long getId() {
         return id;
@@ -41,21 +28,13 @@ public class Video {
         this.url = url;
     }
 
-//    public long getLickCount() {
-//        return lickCount;
-//    }
+    public String getTitle() {
+        return title;
+    }
 
-//    public void setLickCount(long lickCount) {
-//        this.lickCount = lickCount;
-//    }
-//
-//    public long getDislikeCount() {
-//        return dislikeCount;
-//    }
-//
-//    public void setDislikeCount(long dislikeCount) {
-//        this.dislikeCount = dislikeCount;
-//    }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public long getViewCount() {
         return viewCount;
@@ -64,7 +43,6 @@ public class Video {
     public void setViewCount(long viewCount) {
         this.viewCount = viewCount;
     }
-
 
     @Override
     public String toString() {
