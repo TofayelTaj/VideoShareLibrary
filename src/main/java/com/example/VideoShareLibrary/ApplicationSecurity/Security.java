@@ -22,13 +22,13 @@ public class Security extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/signup")
+                .antMatchers("/signup", "/", "/user/reg", "/v/play/*")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
-
                 .and()
-               .formLogin();
+                .formLogin()
+                .defaultSuccessUrl("/user/dashboard");
     }
 
     @Bean
@@ -47,8 +47,5 @@ public class Security extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(this.authenticationProvider());
     }
-
-
-
 
 }

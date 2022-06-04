@@ -12,9 +12,18 @@ public class Video {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String url;
-    private long lickCount;
-    private long dislikeCount;
+    private String title;
+//    private long lickCount;
+//    private long dislikeCount;
     private long viewCount;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public long getId() {
         return id;
@@ -32,21 +41,21 @@ public class Video {
         this.url = url;
     }
 
-    public long getLickCount() {
-        return lickCount;
-    }
+//    public long getLickCount() {
+//        return lickCount;
+//    }
 
-    public void setLickCount(long lickCount) {
-        this.lickCount = lickCount;
-    }
-
-    public long getDislikeCount() {
-        return dislikeCount;
-    }
-
-    public void setDislikeCount(long dislikeCount) {
-        this.dislikeCount = dislikeCount;
-    }
+//    public void setLickCount(long lickCount) {
+//        this.lickCount = lickCount;
+//    }
+//
+//    public long getDislikeCount() {
+//        return dislikeCount;
+//    }
+//
+//    public void setDislikeCount(long dislikeCount) {
+//        this.dislikeCount = dislikeCount;
+//    }
 
     public long getViewCount() {
         return viewCount;
@@ -62,8 +71,7 @@ public class Video {
         return "Video{" +
                 "id=" + id +
                 ", url='" + url + '\'' +
-                ", lickCount=" + lickCount +
-                ", dislikeCount=" + dislikeCount +
+                ", title='" + title + '\'' +
                 ", viewCount=" + viewCount +
                 '}';
     }

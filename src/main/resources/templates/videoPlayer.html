@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<h>Video Player </h>
+<br>
+<br>
+    <iframe
+
+            width="560" height="315"
+            th:src="@{https://www.youtube.com/embed/{url} (url=${videoUrl})}"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture"
+            allowfullscreen>
+
+    </iframe>
+
+</body>
+</html>
