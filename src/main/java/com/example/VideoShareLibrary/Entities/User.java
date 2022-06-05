@@ -1,10 +1,7 @@
 package com.example.VideoShareLibrary.Entities;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class User {
@@ -12,13 +9,11 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(unique = true)
     private String name;
+    @Column(unique = true)
     private String email;
     private String password;
-
-
-
-
 
     public long getId() {
         return id;

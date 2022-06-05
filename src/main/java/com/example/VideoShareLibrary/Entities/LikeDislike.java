@@ -1,6 +1,7 @@
 package com.example.VideoShareLibrary.Entities;
 
 import com.example.VideoShareLibrary.Enums.LikeDislikeEnum;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 
@@ -12,9 +13,9 @@ public class LikeDislike {
     private long id;
     @Column(name = "like_dislike")
     private LikeDislikeEnum likeDislikeEnum;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL )
     private Video video;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL )
     private User user;
 
 

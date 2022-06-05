@@ -5,57 +5,78 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Video Player</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 <body>
 
-<h>Video Player </h>
-<br>
-<br>
-    <iframe
 
-            width="560" height="315"
-            th:src="@{https://www.youtube.com/embed/{url} (url=${video.url})}"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture"
-            allowfullscreen>
-
-    </iframe>
-
-<form action="" th:action="@{/v/ld}">
-
-    <input type="hidden" name="vid" th:value="${video.id}">
-    <input type="hidden" name="like" th:value="${T(com.example.VideoShareLibrary.Enums.LikeDislikeEnum).LIKE}">
-    <button type="submit">Like</button>
-
-</form>
-<br><br>
-
-<form action="" th:action="@{/v/ld}">
-
-    <input type="hidden" name="vid" th:value="${video.id}">
-    <input type="hidden" name="like" th:value="${T(com.example.VideoShareLibrary.Enums.LikeDislikeEnum).DISLIKE}">
-    <button type="submit">Dislike</button>
-
-</form>
+<div class="container mt-3">
 
 
-<a href="" th:href="@{'/v/details?videoId=' + ${video.id}}"> Details</a>
+    <div>
+        <h1 class="text-center">Video Player Page</h1>
+    </div>
 
-<h1>Video Details</h1>
-<h6>likes</h6>
-<div th:each="like : ${allLike}">
-    <h5 th:text="${like.id}"></h5>
+    <div>
+        <a href="" th:href="@{/}">Home</a>
+    </div>
+
+
+
+    <div class="text-center mt-3">
+
+        <iframe
+                width="800" height="400"
+                th:src="@{https://www.youtube.com/embed/{url} (url=${video.url})}"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture"
+                allowfullscreen>
+
+        </iframe>
+    </div>
+
+        <div class="row">
+
+            <dvi class="col-6">
+
+                <h4 > Total Like's :  <span th:text="${likeCount}" ></span>  </h4>
+                <h4 > Total DisLike's :  <span th:text="${dislikeCount}" ></span>  </h4>
+            </dvi>
+
+
+            <div class="col-6">
+                <form action="" th:action="@{/v/ld}">
+
+                    <input type="hidden" name="vid" th:value="${video.id}">
+                    <input type="hidden" name="like" th:value="${T(com.example.VideoShareLibrary.Enums.LikeDislikeEnum).LIKE}">
+                    <button class="btn btn-success my-1" type="submit">Like</button>
+
+                </form>
+
+                <form action="" th:action="@{/v/ld}">
+
+                    <input type="hidden" name="vid" th:value="${video.id}">
+                    <input type="hidden" name="like" th:value="${T(com.example.VideoShareLibrary.Enums.LikeDislikeEnum).DISLIKE}">
+                    <button class="btn btn-warning my-1" type="submit">Dislike</button>
+
+                </form>
+
+                <a class="btn btn-info my-1" href="" th:href="@{'/v/details?videoId=' + ${video.id}}"> Details</a>
+
+            </div>
+
+        </div>
+
 </div>
 
-<h6>dislikes</h6>
-
-<div th:each="dislike : ${allDislike}">
-    <h5 th:text="${dislike}"></h5>
-</div>
 
 
 
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
 </body>
 </html>

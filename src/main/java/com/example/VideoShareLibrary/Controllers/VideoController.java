@@ -34,6 +34,10 @@ public class VideoController {
     public String playVideo(@ModelAttribute Video video, Model model){
         video = videoService.getVideoByUrl(video.getUrl());
         model.addAttribute("video", video);
+        long likeCount = likeDislikeService.getTotalLikeByVideoId(video.getId());
+        long dislikeCount = likeDislikeService.getTotalDislikeByVideoId(video.getId());
+        model.addAttribute("likeCount", likeCount);
+        model.addAttribute("dislikeCount", dislikeCount);
         return "videoPlayer";
     }
 

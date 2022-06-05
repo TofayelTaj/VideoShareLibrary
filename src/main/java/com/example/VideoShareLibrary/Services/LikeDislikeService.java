@@ -45,4 +45,29 @@ public class LikeDislikeService {
         return likeDislikeRepository.findByVideoId(videoId);
     }
 
+    public long getTotalLikeByVideoId(long id){
+
+        List<LikeDislike> all  = likeDislikeRepository.findByVideoId(id);
+        long count = 0;
+        for(int i = 0; i<all.size(); i++){
+            if(all.get(i).getLikeDislikeEnum().name().equals(LikeDislikeEnum.LIKE.toString())){
+               count++;
+            }
+        }
+        return  count;
+
+    }
+
+    public long getTotalDislikeByVideoId(long id) {
+        List<LikeDislike> all = likeDislikeRepository.findByVideoId(id);
+        long count = 0;
+        for (int i = 0; i < all.size(); i++) {
+            if (all.get(i).getLikeDislikeEnum().name().equalsIgnoreCase(LikeDislikeEnum.DISLIKE.toString())) {
+                count++;
+            }
+
+        }
+        return count;
+    }
+
 }

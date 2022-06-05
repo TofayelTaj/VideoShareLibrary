@@ -8,6 +8,7 @@ public class Video {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(unique = true)
     private String url;
     private String title;
     private long viewCount;
