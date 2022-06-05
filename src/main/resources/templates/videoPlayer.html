@@ -41,5 +41,21 @@
 </form>
 
 
+<a href="" th:href="@{'/v/details?videoId=' + ${video.id}}"> Details</a>
+
+<h1>Video Details</h1>
+<h6>likes</h6>
+<div th:each="like : ${allLike}">
+    <h5 th:text="${like.id}"></h5>
+</div>
+
+<h6>dislikes</h6>
+
+<div th:each="dislike : ${allDislike}">
+    <h5 th:text="${dislike}"></h5>
+</div>
+
+
+
 </body>
 </html>

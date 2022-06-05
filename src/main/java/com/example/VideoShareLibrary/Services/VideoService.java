@@ -32,5 +32,9 @@ public class VideoService {
     }
 
 
+    public Video getVideoById(long id){
+        return videoRepository.findByVideoId(id);
+    }
+
 
 }

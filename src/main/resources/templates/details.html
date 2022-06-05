@@ -10,22 +10,20 @@
 <body>
 
 
-<h1>User Dashboard</h1>
+<h2 th:text="${video.title}"></h2>
 
 
+<h1>Likes </h1>
 
-<br>
-<br>
+<div th:each="like : ${allLike}">
+    <h2 th:text="${like}"></h2>
+</div>
+<h1>dislike</h1>
+<div th:each="dislike : ${allDislike}">
+    <h2 th:text="${dislike}"></h2>
+</div>
 
-<h3>Add Youtube embed video link</h3>
-<form action="" th:action="@{/v/add}" th:method="post">
 
-    <input type="text" name="title"> <br>
-    <input type="text" name="url"> <br>
-
-    <input type="submit">
-    
-</form>
 
 </body>
 </html>

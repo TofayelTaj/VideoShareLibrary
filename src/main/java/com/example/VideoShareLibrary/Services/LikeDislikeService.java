@@ -10,6 +10,7 @@ import com.example.VideoShareLibrary.Repositories.VideoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.security.Principal;
+import java.util.List;
 
 @Service
 public class LikeDislikeService {
@@ -38,6 +39,10 @@ public class LikeDislikeService {
             likeDislike.setUser(user);
         }
         likeDislikeRepository.save(likeDislike);
+    }
+
+    public List<LikeDislike> getVideoLikeDislikeDetails(long videoId){
+        return likeDislikeRepository.findByVideoId(videoId);
     }
 
 }
